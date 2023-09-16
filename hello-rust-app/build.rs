@@ -25,10 +25,10 @@ fn main() {
     );
     match sgx_mode.as_ref() {
         "SW" => {
-            println!("cargo:rustc-env=ENCLAVE_FILE_NAME=libhellorust_enclave_sim.signed.so");
+            println!("cargo:rustc-env=ENCLAVE_FILE_NAME=libhello_rust_enclave_sim.signed.so");
             println!("cargo:rustc-cfg=sim_enclave");
         }
-        _ => println!("cargo:rustc-env=ENCLAVE_FILE_NAME=libhellorust_enclave.signed.so"),
+        _ => println!("cargo:rustc-env=ENCLAVE_FILE_NAME=libhello_rust_enclave.signed.so"),
     }
 
     // generate enclave_u src

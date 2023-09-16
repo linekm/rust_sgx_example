@@ -29,8 +29,9 @@ pub unsafe extern "C" fn ocall_get_outside_data_len(
     let query_data = POINT_PAIR_MAP
         .as_mut()
         .unwrap()
-        .get(&query_key);
-    let data_bytes = postcard::to_allocvec(&query_data).unwrap();
+        .get(&query_key)
+        .unwrap();
+    let data_bytes = postcard::to_allocvec(&vec![query_data.0.clone(), query_data.1.clone()]).unwrap();
 
     *data_len = data_bytes.len();
 

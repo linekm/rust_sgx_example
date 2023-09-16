@@ -21,11 +21,11 @@ else
 endif
 
 ifneq ($(SGX_MODE), HW)
-	ENCLAVE_NAME := hello_enclave_sim
+	ENCLAVE_NAME := hello_rust_enclave_sim
 	Trts_Library_Name := sgx_trts_sim
 	Service_Library_Name := sgx_tservice_sim
 else
-	ENCLAVE_NAME := hello_enclave
+	ENCLAVE_NAME := hello_rust_enclave
 	Trts_Library_Name := sgx_trts
 	Service_Library_Name := sgx_tservice
 endif
@@ -42,7 +42,7 @@ ENCLAVE_SIGNED_FILE := $(OUTPUT_DIR)/lib$(ENCLAVE_NAME).signed.so
 ENCLAVE_TRUST_OBJ_NAME := enclave_t.o
 ENCLAVE_TRUST_OBJ_FILE := $(TARGET_DIR)/$(ENCLAVE_TRUST_OBJ_NAME)
 
-RUST_LIB_NAME := hello_enclave_rust
+RUST_LIB_NAME := hellorustenclave
 RUST_LIB_FILE := $(TARGET_DIR)/lib$(RUST_LIB_NAME).a
 
 SGX_ENCLAVE_CFLAGS := \
