@@ -1,0 +1,26 @@
+[workspace]
+members = [
+    "hello-rust-app",
+    "hello-rust-core",
+]
+exclude = [
+    "hello-rust-enclave",
+    "rust-sgx-sdk",
+]
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+# debug = 1
+
+[profile.dev]
+lto = "off"
+opt-level = 0
+
+[profile.test]
+lto = "off"
+opt-level = 0
+
+# [rust]
+# debuginfo-level = 1

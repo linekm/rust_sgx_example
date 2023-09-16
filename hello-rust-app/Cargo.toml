@@ -1,0 +1,21 @@
+[package]
+name = "hello-rust-app"
+version = "0.1.0"
+edition = "2021"
+publish = false
+build = "build.rs"
+
+[dependencies]
+hello-rust-core = { path = "../hello-rust-core" }
+
+sgx_types = { path = "../rust-sgx-sdk/sgx_types" }
+sgx_urts = { path = "../rust-sgx-sdk/sgx_urts" }
+
+anyhow = { version = "1.0", default-features = false }
+postcard = { version = "1.0.2", features = ["alloc"] }
+
+serde = { version = "1.0", features = ["derive"]}
+
+[build-dependencies]
+bindgen = "0.63.0"
+cc = "1.0"

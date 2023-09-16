@@ -1,0 +1,28 @@
+[package]
+name = "hello-rust-enclave"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "hello_enclave_rust"
+crate-type = ["staticlib"]
+
+[profile.release]
+lto = true
+opt-level = 3
+panic = "abort"
+
+[dependencies]
+hello-rust-core = { path = "../hello-rust-core", default-features = false }
+sgx_rand = { path = "../rust-sgx-sdk/sgx_rand" }
+sgx_trts = { path = "../rust-sgx-sdk/sgx_trts" }
+sgx_tse = { path = "../rust-sgx-sdk/sgx_tse" }
+sgx_tstd = { path = "../rust-sgx-sdk/sgx_tstd" }
+sgx_types = { path = "../rust-sgx-sdk/sgx_types" }
+
+serde = { version = "1.0", default-features = false, features = ["derive", "alloc"] }
+postcard = { version = "1.0.2", features = ["alloc"] }
+
+[patch.'https://github.com/apache/teaclave-sgx-sdk.git']
+sgx_tstd = { path = "../rust-sgx-sdk/sgx_tstd" }

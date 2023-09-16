@@ -1,0 +1,37 @@
+enclave {
+    from "sgx_backtrace.edl" import *;
+    from "sgx_stdio.edl" import *;
+    from "sgx_tstd.edl" import *;
+    from "sgx_tstdc.edl" import *;
+
+    include "sgx_quote.h"
+
+    trusted {
+        public double ecall_sgx_add (
+            double a,
+            double b
+        );
+
+        public int32_t ecall_sgx_l2_dist (
+            size_t key
+        );
+    };
+  
+    untrusted {
+        int32_t ocall_get_outside_data_len(
+            size_t query_key,
+            [out] size_t* data_len
+        );
+
+        int32_t ocall_outside_data(
+            size_t query_key,
+            [out, size = data_len] uint8_t* data,
+            size_t data_len
+        );
+
+        int32_t ocall_return_result(
+            [in, size = bytes_len] const uint8_t* result_bytes,
+            size_t bytes_len
+        );
+    };
+};
