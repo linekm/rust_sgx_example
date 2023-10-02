@@ -19,6 +19,7 @@ std = [
 anyhow = { version = "1.0", default-features = false }
 bitvec = { version = "1.0", default-features = false, features = ["alloc", "atomic", "serde"] }
 derive_more = "0.99"
+hello-rust-cmov-derive = { path = "../hello-rust-cmov-derive" }
 serde = { version = "1.0", default-features = false, features = ["derive", "alloc"] }
 postcard = { version = "1.0.2", features = ["alloc"] }
 libm = {version = "0.2.6"}

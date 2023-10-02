@@ -9,4 +9,9 @@ extern crate alloc;
 
 pub use anyhow as error;
 
+pub mod sort;
+pub mod aligned;
+pub mod cmov;
 pub mod util;
+
+mod example;

@@ -2,6 +2,7 @@
 members = [
     "hello-rust-app",
     "hello-rust-core",
+    "hello-rust-cmov-derive",
 ]
 exclude = [
     "hello-rust-enclave",
